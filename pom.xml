@@ -44,6 +44,5 @@
             <artifactId>cucumber-reporting</artifactId>
             <version>0.0.18-SNAPSHOT</version>
         </dependency>
-
     </dependencies>
 </project>

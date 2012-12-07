@@ -73,8 +73,11 @@ public class CucumberReportPublisher extends Recorder {
         if (Computer.currentComputer() instanceof SlaveComputer) {
             listener.getLogger().println("[CucumberReportPublisher] detected this build is running on a slave ");
             FilePath projectWorkspaceOnSlave = build.getProject().getSomeWorkspace();
+            if (!jsonReportDirectory.isEmpty()) {
+                projectWorkspaceOnSlave = new FilePath(projectWorkspaceOnSlave, jsonReportDirectory);
+            }
             FilePath masterJsonReportDirectory = new FilePath(targetBuildDirectory);
-            listener.getLogger().println("[CucumberReportPublisher] copying json from: " +  projectWorkspaceOnSlave.toURI() + "to reports directory: " + masterJsonReportDirectory.toURI());
+            listener.getLogger().println("[CucumberReportPublisher] copying json from: " +  projectWorkspaceOnSlave.toURI() + " to reports directory: " + masterJsonReportDirectory.toURI());
             projectWorkspaceOnSlave.copyRecursiveTo("**/*.json","", masterJsonReportDirectory);
         } else {
             // if we are on the master
