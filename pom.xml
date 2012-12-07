@@ -9,7 +9,8 @@
 
     <groupId>net.masterthought.jenkins</groupId>
     <artifactId>cucumber-reports</artifactId>
-    <version>0.0.18</version>
+    <name>Cucumber Reports Plugin</name>
+    <version>0.0.19-SNAPSHOT</version>
     <packaging>hpi</packaging>
 
     <scm>
